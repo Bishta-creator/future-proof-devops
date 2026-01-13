@@ -10,3 +10,4 @@ Target: Achieve my goal to get new job
 
 PHASE-1: Git started
 Day-1: Git Basics
+Day-2: Git configuration and history
