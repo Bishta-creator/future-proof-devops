@@ -145,5 +145,162 @@ A: It is an intermediate area where changes are prepared before commit.
  
 Q: What is .gitignore?  
 A: It tells Git to ignore specific files or folders.
+
+==================================================
  
-=============================================================================================
+## DAY 3: GIT BRANCHING (ZERO → PROFESSIONAL)
+ 
+### What is a Branch?
+
+A Git branch is an independent line of development that allows developers to work on features or fixes without affecting the main codebase.
+ 
+--------------------------------------------------
+ 
+### Why Branches are Used?
+
+- To work on new features safely
+
+- To avoid breaking stable code
+
+- To allow multiple developers to work in parallel
+
+- To maintain clean and controlled development
+ 
+--------------------------------------------------
+ 
+### What is the Default Branch?
+ 
+The default branch is the primary branch of a Git repository.
+
+It usually contains stable and production-ready code.
+ 
+--------------------------------------------------
+ 
+### main vs master (IMPORTANT)
+ 
+Earlier:
+
+- `master` was the default branch name in Git
+ 
+Now:
+
+- `main` is the default branch name on most platforms (GitHub, GitLab)
+ 
+Reason for change:
+
+- To use more inclusive and clear terminology
+ 
+Current industry practice:
+
+- New repositories → `main`
+
+- Old repositories → may still use `master`
+ 
+--------------------------------------------------
+ 
+### Commands Used for Branching
+ 
+List branches:
+
+git branch
+ 
+Create a new branch:
+
+git branch feature-day3
+ 
+Switch to a branch (modern command):
+
+git switch feature-day3
+ 
+--------------------------------------------------
+ 
+### checkout vs switch (VERY IMPORTANT)
+ 
+git checkout:
+
+- Older command
+
+- Used for branch switching AND file restoration
+
+- Confusing for beginners
+ 
+git switch:
+
+- Newer command
+
+- Used only for switching branches
+
+- Clear and safer
+ 
+Interview Answer:
+
+`git switch` is preferred for changing branches, while `git checkout` is an older multi-purpose command.
+ 
+--------------------------------------------------
+ 
+### Working on a Branch
+ 
+Changes made on a branch do not affect the main branch
+
+until they are merged.
+ 
+--------------------------------------------------
+ 
+### Merge in Git
+ 
+Merge is the process of combining changes from one branch
+
+into another branch.
+ 
+Example:
+
+- feature branch → merged into main branch
+ 
+--------------------------------------------------
+ 
+### Types of Merge (Basic)
+ 
+Fast-forward merge:
+
+- Happens when main branch has no new commits
+
+- Branch pointer simply moves forward
+ 
+--------------------------------------------------
+ 
+### Deleting a Branch
+ 
+After merging, branches should be deleted to keep
+
+the repository clean.
+ 
+Command:
+
+git branch -d feature-day3
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Day 3)
+ 
+Q: What is a Git branch?  
+
+A: A separate line of development used to work independently.
+ 
+Q: What is the default branch in Git?  
+
+A: The primary branch that contains stable code (usually main).
+ 
+Q: Difference between main and master?  
+
+A: master was the old default; main is the new standard.
+ 
+Q: Difference between checkout and switch?  
+
+A: checkout is older and multi-purpose, switch is modern and only for branches.
+ 
+Q: Why do we delete branches after merge?  
+
+A: To keep the repository clean and manageable.
+ 
+==================================================
+  
