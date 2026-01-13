@@ -304,7 +304,6 @@ A: To keep the repository clean and manageable.
  
 ==================================================
  
---------------------------------------------------
  
 ### Common Git Error: Changes not staged for commit
  
@@ -366,4 +365,63 @@ A: Because files were modified, deleted, or created but not added to the staging
  
 ==================================================
 
-  
+## DAY 4: GIT RECOVERY & REMOTE BASICS
+ 
+### git restore
+Used to discard uncommitted changes from the working directory.
+ 
+Command:
+git restore <file>
+ 
+Learning:
+Safely undo changes before commit.
+ 
+--------------------------------------------------
+ 
+### git reset --soft
+Used to undo the last commit while keeping changes staged.
+ 
+Command:
+git reset --soft HEAD~1
+ 
+Learning:
+- Commit is removed
+- Code remains safe
+- Useful for fixing commit messages
+ 
+--------------------------------------------------
+ 
+### Local vs Remote Repository
+ 
+Local Repository:
+- Exists on developer’s machine
+- Used for daily work
+ 
+Remote Repository:
+- Hosted on platforms like GitHub
+- Used for sharing and backup
+ 
+--------------------------------------------------
+ 
+### git fetch vs git pull
+ 
+git fetch:
+- Downloads changes from remote
+- Does NOT merge automatically
+- Safe for review
+ 
+git pull:
+- Downloads + merges changes
+- Updates working directory
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Day 4)
+ 
+Q: What does git restore do?
+A: Discards uncommitted changes.
+ 
+Q: Difference between git fetch and git pull?
+A: fetch downloads changes; pull downloads and merges.
+ 
+================================================== 
