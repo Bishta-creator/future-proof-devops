@@ -303,4 +303,67 @@ Q: Why do we delete branches after merge?
 A: To keep the repository clean and manageable.
  
 ==================================================
+ 
+--------------------------------------------------
+ 
+### Common Git Error: Changes not staged for commit
+ 
+Error Message:
+
+Changes not staged for commit  
+
+deleted: notes.txt  
+
+no changes added to commit
+ 
+--------------------------------------------------
+ 
+### Root Cause:
+
+- A file (notes.txt) was renamed to DEVOPS_MASTER_NOTES.md
+
+- Git detected the deletion and new file
+
+- Changes were NOT staged using `git add`
+
+- Git does not commit unstaged changes
+ 
+--------------------------------------------------
+ 
+### Resolution Steps:
+
+1. Check current status:
+
+   git status
+ 
+2. Stage all changes (including deletions):
+
+   git add -A
+ 
+3. Commit changes:
+
+   git commit -m "Meaningful message"
+ 
+--------------------------------------------------
+ 
+### Learning:
+
+- git commit works only on staged changes
+
+- File rename = delete + new file in Git
+
+- Always run `git add` before commit
+
+- Use `git add -A` to include deleted files
+ 
+--------------------------------------------------
+ 
+### Interview Question:
+
+Q: Why does Git say "changes not staged for commit"?
+
+A: Because files were modified, deleted, or created but not added to the staging area using `git add`.
+ 
+==================================================
+
   
