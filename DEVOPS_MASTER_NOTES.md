@@ -425,3 +425,73 @@ Q: Difference between git fetch and git pull?
 A: fetch downloads changes; pull downloads and merges.
  
 ================================================== 
+
+## DAY 5: GITHUB & REMOTE WORKFLOW
+ 
+### What is GitHub?
+GitHub is a cloud platform used to host and share Git repositories.
+ 
+### Why GitHub is Important?
+- Central storage
+- Backup of work
+- Collaboration
+- Multi-system workflow
+ 
+--------------------------------------------------
+ 
+### Creating a Remote Repository
+A new repository was created on GitHub without README, .gitignore, or license.
+ 
+--------------------------------------------------
+ 
+### Adding Remote to Local Repository
+ 
+Commands:
+git remote add origin https://github.com/<USERNAME>/future-proof-devops.git
+git remote -v
+ 
+Learning:
+Remote connects local repository to GitHub.
+ 
+--------------------------------------------------
+ 
+### Default Branch (main vs master)
+ 
+- master: old default branch
+- main: new industry standard
+ 
+Command used:
+git branch -M main
+ 
+--------------------------------------------------
+ 
+### First Push to GitHub
+ 
+Command:
+git push -u origin main
+ 
+Learning:
+- Push uploads commits to GitHub
+- -u sets upstream for future pushes
+ 
+--------------------------------------------------
+ 
+### Multi-System Workflow (Home + Office)
+ 
+Steps:
+1. git clone (new system)
+2. Work and commit
+3. git push
+4. git pull on other system
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Day 5)
+ 
+Q: What is a remote repository?
+A: A repository hosted on a platform like GitHub.
+ 
+Q: How do you sync work between two systems?
+A: Using git clone, pull, and push.
+ 
+==================================================
