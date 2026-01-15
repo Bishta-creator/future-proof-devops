@@ -592,3 +592,171 @@ Q: What is a Personal Access Token?
 A: A token used to authenticate Git operations over HTTPS.
  
 ================================================== 
+
+## DAY 6: GIT PHASE FINAL (AUTHENTICATION, ERRORS, DAILY WORKFLOW)
+ 
+==================================================
+ 
+### GitHub Authentication Methods
+ 
+There are two main ways to authenticate GitHub:
+ 
+1. HTTPS
+2. SSH
+ 
+--------------------------------------------------
+ 
+### HTTPS Authentication (Used in This Phase)
+ 
+In HTTPS authentication, GitHub requires:
+- Username
+- Personal Access Token (PAT) instead of password
+ 
+Password-based authentication is deprecated by GitHub.
+ 
+--------------------------------------------------
+ 
+### Why GitHub Uses Personal Access Token (PAT)?
+ 
+- Improves security
+- Prevents password leakage
+- Allows controlled access using scopes
+ 
+--------------------------------------------------
+ 
+### HTTPS Authentication Flow
+ 
+Command:
+git push -u origin main
+ 
+Steps:
+1. Enter GitHub username
+2. Enter Personal Access Token as password
+ 
+Note:
+While pasting the token, nothing appears on terminal.
+This is expected behavior.
+ 
+--------------------------------------------------
+ 
+### Creating Personal Access Token (PAT)
+ 
+Path:
+GitHub → Settings → Developer settings →
+Personal access tokens → Tokens (classic)
+ 
+Required Scope:
+- repo
+ 
+Important:
+Token is shown only once. Save it securely.
+ 
+--------------------------------------------------
+ 
+### Common Git Error: Could Not Resolve Host
+ 
+Error:
+fatal: unable to access 'https://github.com/...':
+Could not resolve host: github.com
+ 
+--------------------------------------------------
+ 
+### Root Cause:
+- DNS issue
+- Proxy misconfiguration
+- Firewall / network restriction
+- VPN or office network interference
+ 
+--------------------------------------------------
+ 
+### Resolution Steps:
+1. Check internet connectivity:
+   ping google.com
+ 
+2. Check DNS resolution:
+   getent hosts github.com
+ 
+3. Check proxy configuration:
+   git config --global --get http.proxy
+   git config --global --get https.proxy
+ 
+4. Remove proxy if set:
+   git config --global --unset http.proxy
+   git config --global --unset https.proxy
+ 
+--------------------------------------------------
+ 
+### Learning:
+- Ping success does not guarantee HTTPS access
+- GitHub uses HTTPS (TCP 443), not ICMP
+- Network issues can change daily in office environments
+ 
+--------------------------------------------------
+ 
+### Credential Caching (Optional)
+ 
+To avoid entering token repeatedly:
+ 
+Command:
+git config --global credential.helper store
+ 
+Learning:
+Credentials will be stored locally after next successful authentication.
+ 
+--------------------------------------------------
+ 
+### Daily Professional Git Workflow
+ 
+On any system (Home / Office):
+ 
+1. Pull latest changes:
+   git pull
+ 
+2. Work on files
+ 
+3. Stage changes:
+   git add .
+ 
+4. Commit changes:
+   git commit -m "Meaningful commit message"
+ 
+5. Push changes:
+   git push
+ 
+--------------------------------------------------
+ 
+### Multi-System Workflow (Single Source of Truth)
+ 
+- GitHub acts as the central repository
+- Home system and office system both sync using pull and push
+- Prevents data loss and version conflicts
+ 
+--------------------------------------------------
+ 
+### Final Learning Summary (Git Phase)
+ 
+- Git tracks file changes
+- GitHub hosts repositories
+- Branches enable parallel work
+- Commits are snapshots
+- Staging is mandatory before commit
+- HTTPS authentication uses PAT
+- GitHub is essential for multi-system workflow
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Git Phase Final)
+ 
+Q: Why does GitHub not support password authentication?
+A: For security reasons, GitHub requires Personal Access Tokens.
+ 
+Q: What is the difference between HTTPS and SSH in Git?
+A: HTTPS uses username and token, SSH uses key-based authentication.
+ 
+Q: What command stages all changes including deletions?
+A: git add -A
+ 
+Q: Why is GitHub important for DevOps engineers?
+A: It acts as a single source of truth and collaboration platform.
+ 
+==================================================
