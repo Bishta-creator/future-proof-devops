@@ -809,5 +809,210 @@ A: git add -A
  
 Q: Why is GitHub important for DevOps engineers?
 A: It acts as a single source of truth and collaboration platform.
+
+
+--------------------------------------------------
+ 
+### GitHub Authentication using SSH (KEY-BASED AUTHENTICATION)
+ 
+SSH authentication is a secure method to connect to GitHub
+
+without using username and password or Personal Access Token.
+ 
+--------------------------------------------------
+ 
+### Why SSH is Used?
+ 
+- More secure than HTTPS
+
+- No need to enter username or token repeatedly
+
+- Industry-preferred authentication method
+
+- Uses public-private key cryptography
+ 
+--------------------------------------------------
+ 
+### HTTPS vs SSH (CLEAR DIFFERENCE)
+ 
+HTTPS:
+
+- Uses username + Personal Access Token
+
+- Token may be required repeatedly
+
+- Easier for beginners
+ 
+SSH:
+
+- Uses SSH key pair (public + private)
+
+- No password/token after setup
+
+- Preferred in professional environments
+ 
+--------------------------------------------------
+ 
+### SSH Authentication Flow
+ 
+1. Generate SSH key on local system
+
+2. Add public key to GitHub account
+
+3. Test SSH connection
+
+4. Use SSH-based repository URL
+ 
+--------------------------------------------------
+ 
+### Step 1: Generate SSH Key
+ 
+Command:
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+ 
+Explanation:
+
+- ed25519 is a modern, secure algorithm
+
+- Email is used as key label
+ 
+Press Enter for:
+
+- File location (default)
+
+- Passphrase (optional)
+ 
+--------------------------------------------------
+ 
+### Step 2: Start SSH Agent
+ 
+Command:
+
+eval "$(ssh-agent -s)"
+ 
+Purpose:
+
+Starts SSH agent to manage keys securely.
+ 
+--------------------------------------------------
+ 
+### Step 3: Add SSH Key to Agent
+ 
+Command:
+
+ssh-add ~/.ssh/id_ed25519
+ 
+Result:
+
+Private key is loaded into SSH agent.
+ 
+--------------------------------------------------
+ 
+### Step 4: Copy Public Key
+ 
+Command:
+
+cat ~/.ssh/id_ed25519.pub
+ 
+Purpose:
+
+Public key will be added to GitHub account.
+ 
+--------------------------------------------------
+ 
+### Step 5: Add SSH Key to GitHub
+ 
+Path:
+
+GitHub → Settings → SSH and GPG keys → New SSH key
+ 
+Steps:
+
+- Title: Any meaningful name (e.g. office-linux)
+
+- Key type: Authentication key
+
+- Paste public key
+
+- Save
+ 
+--------------------------------------------------
+ 
+### Step 6: Test SSH Connection
+ 
+Command:
+
+ssh -T git@github.com
+ 
+Expected Output:
+
+Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+ 
+Meaning:
+
+SSH authentication is working correctly.
+ 
+--------------------------------------------------
+ 
+### Step 7: Use SSH Remote URL
+ 
+Check current remote:
+
+git remote -v
+ 
+Change HTTPS to SSH:
+
+git remote set-url origin git@github.com:<USERNAME>/future-proof-devops.git
+ 
+Verify:
+
+git remote -v
+ 
+--------------------------------------------------
+ 
+### Learning Summary (SSH)
+ 
+- SSH uses key-based authentication
+
+- Public key is stored on GitHub
+
+- Private key stays on local system
+
+- SSH is more secure and professional than HTTPS
+ 
+--------------------------------------------------
+ 
+### Common SSH Issues
+ 
+Issue:
+
+Permission denied (publickey)
+ 
+Possible Causes:
+
+- SSH key not added to GitHub
+
+- Wrong key loaded in SSH agent
+
+- Using HTTPS URL instead of SSH
+ 
+--------------------------------------------------
+ 
+### Interview Questions (SSH)
+ 
+Q: Why is SSH preferred over HTTPS in Git?
+
+A: Because SSH is more secure and does not require repeated authentication.
+ 
+Q: Where is the private SSH key stored?
+
+A: On the local system inside ~/.ssh directory.
+ 
+Q: Can the same GitHub account be used on multiple systems with SSH?
+
+A: Yes, by adding separate SSH keys for each system.
  
 ==================================================
+
+  
