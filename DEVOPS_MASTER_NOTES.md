@@ -493,5 +493,8 @@ A: A repository hosted on a platform like GitHub.
  
 Q: How do you sync work between two systems?
 A: Using git clone, pull, and push.
+
+Q: Why archive instead of delete?
+A: Archiving preserves history while preventing further changes, which is useful for reference and clean restarts.
  
 ==================================================
