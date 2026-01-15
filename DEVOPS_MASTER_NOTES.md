@@ -438,15 +438,21 @@ GitHub is a cloud platform used to host and share Git repositories.
 - Multi-system workflow
  
 --------------------------------------------------
+
+### Creating a Clean Repository
+A new repository was created without README, .gitignore, or license to avoid conflicts with the local repository.
+
+--------------------------------------------------
  
 ### Creating a Remote Repository
 A new repository was created on GitHub without README, .gitignore, or license.
  
 --------------------------------------------------
  
-### Adding Remote to Local Repository
+### Adding Remote to Local Repository or Connecting Local Repo to GitHub
  
 Commands:
+git branch -M main
 git remote add origin https://github.com/<USERNAME>/future-proof-devops.git
 git remote -v
  
@@ -477,7 +483,7 @@ Learning:
 --------------------------------------------------
  
 ### Multi-System Workflow (Home + Office)
- 
+GitHub enables seamless multi-system development using clone,pull and push. 
 Steps:
 1. git clone (new system)
 2. Work and commit
@@ -487,6 +493,9 @@ Steps:
 --------------------------------------------------
  
 ### Interview Questions (Day 5)
+
+Q:What is a remote in Git?
+A: A remote is a reference to a repository hosted elsewhere(e.g., GitHub)
  
 Q: What is a remote repository?
 A: A repository hosted on a platform like GitHub.
@@ -496,5 +505,90 @@ A: Using git clone, pull, and push.
 
 Q: Why archive instead of delete?
 A: Archiving preserves history while preventing further changes, which is useful for reference and clean restarts.
+
+Q:Why GitHub worked yesterday but not today?
+A: Proxy, VPN, or network settings may change and block Git traffic even when the internet works.
+
+Q:Why ping works but git doesn't?
+A:Ping tests ICMP;Git uses HTTPS(TCP 443), which may be blocked or proxied.
+
+--------------------------------------------------
  
-==================================================
+### GitHub Authentication using HTTPS (Personal Access Token)
+ 
+Scenario:
+While pushing code to GitHub using HTTPS, Git asked for username and password.
+ 
+Observation:
+GitHub no longer supports password-based authentication for Git operations.
+ 
+--------------------------------------------------
+ 
+### Why Password is Not Used?
+ 
+For security reasons, GitHub requires a Personal Access Token (PAT)
+instead of account password when using HTTPS.
+ 
+--------------------------------------------------
+ 
+### Authentication Flow (HTTPS)
+ 
+Command:
+git push -u origin main
+(-u make future pushes in simple)
+
+Q:What does git push -u do?
+A:Sets upstream so future pushed can be done with git push.
+
+Q:What is a remote in Git?
+A:A remote is a reference to a repository hosted elsewhere(e.g., GitHub)n
+ 
+Steps:
+1. Enter GitHub username
+2. Enter Personal Access Token as password
+ 
+Note:
+While pasting the token, nothing appears on screen.
+This is normal behavior.
+ 
+--------------------------------------------------
+ 
+### Personal Access Token (PAT)
+ 
+What is PAT?
+A Personal Access Token is a secure token used to authenticate
+Git operations instead of a password.
+ 
+Token Creation Path:
+GitHub → Settings → Developer settings →
+Personal access tokens → Tokens (classic)
+ 
+Required Scopes:
+- repo
+ 
+--------------------------------------------------
+ 
+### Successful Push Result
+ 
+After providing username and token:
+- Push completed successfully
+- Local repository synced with GitHub
+ 
+--------------------------------------------------
+ 
+### Learning:
+- HTTPS authentication uses username + token
+- Password authentication is deprecated
+- PAT is required for secure GitHub access
+ 
+--------------------------------------------------
+ 
+### Interview Questions
+ 
+Q: Why does GitHub not allow password authentication?
+A: For better security, GitHub uses Personal Access Tokens instead of passwords.
+ 
+Q: What is a Personal Access Token?
+A: A token used to authenticate Git operations over HTTPS.
+ 
+================================================== 
