@@ -66,9 +66,13 @@ A `.git` directory is created, which makes the folder a Git repository.
 --------------------------------------------------
  
 ### First Commit
+
+Note:
+Initially notes.txt was used for practice.
+Later it was renamed to DEVOPS_MASTER_NOTES.md as a professional master notes file.
  
 Commands:
-git add notes.txt  
+git add DEVOPS_MASTER_NOTES.md  
 git commit -m "Day 1: Git initialized and first notes added"
  
 Learning:
@@ -231,6 +235,10 @@ git switch:
 - Used only for switching branches
 
 - Clear and safer
+
+Merge Command Example:
+git switch main
+git merge feature-day3
  
 Interview Answer:
 
@@ -304,7 +312,6 @@ A: To keep the repository clean and manageable.
  
 ==================================================
  
- 
 ### Common Git Error: Changes not staged for commit
  
 Error Message:
@@ -362,7 +369,21 @@ no changes added to commit
 Q: Why does Git say "changes not staged for commit"?
 
 A: Because files were modified, deleted, or created but not added to the staging area using `git add`.
- 
+
+-------------------------------------------------
+
+Difference between git add . and git add -A
+
+git add .
+
+-Stages new and modified files
+-Does NOT stage deleted files in some cases
+
+git add -A
+
+-Stages new, modified, and deleted files
+-Recommended for complete staging
+
 ==================================================
 
 ## DAY 4: GIT RECOVERY & REMOTE BASICS
@@ -459,6 +480,18 @@ git remote -v
 Learning:
 Remote connects local repository to GitHub.
  
+--------------------------------------------------
+
+### Removing a Remote Repository
+
+Commands:
+git remote remove origin
+
+Use Case:
+
+-Wrong remote URL added
+-Clean reconfiguration required
+
 --------------------------------------------------
  
 ### Default Branch (main vs master)
@@ -603,6 +636,14 @@ There are two main ways to authenticate GitHub:
  
 1. HTTPS
 2. SSH
+
+When to Use SSH Authentication?
+
+-When working frequently with GitHub
+-Avoid entering username/token repeatedly
+-Preferred in professional environments
+
+SSH uses key-based authentication instead of passwords or token.
  
 --------------------------------------------------
  
@@ -722,6 +763,16 @@ On any system (Home / Office):
  
 5. Push changes:
    git push
+
+
+Commit Message Best Practices
+
+-Use present tense
+-Be clear and specific
+-Avoid generic messages like "update" or "fix"
+
+Example:
+"Add Git branching notes for Day 3"
  
 --------------------------------------------------
  
