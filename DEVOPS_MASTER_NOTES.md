@@ -518,7 +518,7 @@ Learning:
 ### Multi-System Workflow (Home + Office)
 GitHub enables seamless multi-system development using clone,pull and push. 
 Steps:
-1. git clone (new system)
+1. git clone (new system(profilelinl like :- https:\\github.com\Bishta-creator\future-proof-devops.git)
 2. Work and commit
 3. git push
 4. git pull on other system
@@ -1012,6 +1012,72 @@ A: On the local system inside ~/.ssh directory.
 Q: Can the same GitHub account be used on multiple systems with SSH?
 
 A: Yes, by adding separate SSH keys for each system.
+ 
+==================================================
+
+==================================================
+ 
+## PHASE 2: LINUX (ZERO → ADVANCED)
+ 
+## DAY 1: LINUX FOUNDATIONS
+ 
+### What is Linux?
+
+Linux is an open-source operating system kernel used to manage system resources.
+ 
+### Why Linux for DevOps?
+
+- Most servers run Linux
+
+- Stable and secure
+
+- Automation-friendly
+ 
+--------------------------------------------------
+ 
+### Linux Filesystem Basics
+ 
+/       → Root directory
+
+/home   → User home directories
+
+/root   → Root user home
+
+/etc    → Configuration files
+
+/var    → Logs and variable data
+
+/bin    → Essential commands
+
+/tmp    → Temporary files
+ 
+--------------------------------------------------
+ 
+### Basic Commands Practiced
+ 
+pwd     → Show current directory
+
+ls      → List files
+
+ls -l   → Detailed listing
+
+ls -a   → Show hidden files
+
+cd /    → Go to root
+
+cd ~    → Go to home directory
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Day 1)
+ 
+Q: What is Linux?
+
+A: An open-source operating system kernel.
+ 
+Q: Where are system configuration files stored?
+
+A: /etc
  
 ==================================================
 
