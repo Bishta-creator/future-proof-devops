@@ -1015,9 +1015,9 @@ A: Yes, by adding separate SSH keys for each system.
  
 ==================================================
 
+## PHASE 2: LINUX (ZERO -> ADVANCED)
+
 ==================================================
- 
-## PHASE 2: LINUX (ZERO → ADVANCED)
  
 ## DAY 1: LINUX FOUNDATIONS
  
@@ -1081,4 +1081,61 @@ A: /etc
  
 ==================================================
 
-  
+==================================================
+ 
+## DAY 2: FILES & DIRECTORIES
+ 
+### Creating Files and Directories
+Commands:
+mkdir <dir>
+touch <file>
+ 
+--------------------------------------------------
+ 
+### Copying Files and Directories
+Commands:
+cp file target/
+cp -r dir target/
+ 
+--------------------------------------------------
+ 
+### Moving and Renaming
+Command:
+mv oldname newname
+ 
+--------------------------------------------------
+ 
+### Deleting Files and Directories
+Commands:
+rm file
+rm -r directory
+ 
+Note:
+Deletion in Linux is permanent.
+ 
+--------------------------------------------------
+ 
+### Absolute vs Relative Paths
+Absolute path starts from /
+Relative path starts from current directory
+ 
+--------------------------------------------------
+ 
+### Wildcards
+*     → matches any string
+*.log → matches all .log files
+ 
+--------------------------------------------------
+ 
+### Interview Questions (Day 2)
+ 
+Q: How do you copy a directory?
+A: Using cp -r
+ 
+Q: How do you rename a file?
+A: Using mv
+ 
+Q: Difference between absolute and relative path?
+A: Absolute starts from /, relative from current directory
+ 
+================================================== 
