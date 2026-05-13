@@ -76,9 +76,15 @@ git add DEVOPS_MASTER_NOTES.md
 git commit -m "Day 1: Git initialized and first notes added"
  
 Learning:
-- git add moves files to staging area
+- git add moves changes to the staging area, allowing selective commits instead of committing all modified files at once.
 - git commit saves a snapshot of changes
- 
+
+***Important Concept:
+
+Each commit in Git is a snapshot of the project at a specific point in time,
+not just a difference or patch. 
+
+
 --------------------------------------------------
  
 ### Interview Questions (Day 1)
@@ -384,6 +390,12 @@ git add -A
 -Stages new, modified, and deleted files
 -Recommended for complete staging
 
+**Real-World Note:**
+
+In production environments, `git add -A` is preferred because it ensures all changes
+(new, modified, deleted) are tracked, preventing accidental omission of deleted files.
+
+
 ==================================================
 
 ## DAY 4: GIT RECOVERY & REMOTE BASICS
@@ -511,7 +523,7 @@ git push -u origin main
  
 Learning:
 - Push uploads commits to GitHub
-- -u sets upstream for future pushes
+- -u sets the upstream branch, allowing future pushes using only `git push` without specifying remote and branch.
  
 --------------------------------------------------
  
@@ -574,7 +586,7 @@ Q:What does git push -u do?
 A:Sets upstream so future pushed can be done with git push.
 
 Q:What is a remote in Git?
-A:A remote is a reference to a repository hosted elsewhere(e.g., GitHub)n
+A:A remote is a reference to a repository hosted on another system(e.g., GitHub)
  
 Steps:
 1. Enter GitHub username
@@ -1012,6 +1024,13 @@ A: On the local system inside ~/.ssh directory.
 Q: Can the same GitHub account be used on multiple systems with SSH?
 
 A: Yes, by adding separate SSH keys for each system.
+
+
+*** Production Insight:
+
+In real-world DevOps environments, Git is not just used for code,
+but also for managing infrastructure as code (IaC), CI/CD pipelines,
+and configuration management.
  
 ==================================================
 
@@ -1139,3 +1158,334 @@ Q: Difference between absolute and relative path?
 A: Absolute starts from /, relative from current directory
  
 ================================================== 
+=======
+==================================================
+
+## PHASE 2: LINUX FUNDAMENTALS (SYSTEM CORE)
+
+==================================================
+
+## DAY 1: INTRODUCTION TO LINUX
+
+### What is Linux?
+
+Linux is an open-source operating system kernel that manages hardware resources and allows software to run.
+
+It acts as a bridge between hardware and applications.
+
+--------------------------------------------------
+
+### Why Linux is Important?
+
+- Used in servers, cloud, DevOps, and enterprise systems
+- Highly stable and secure
+- Open-source and customizable
+- Core skill for DevOps engineers
+
+--------------------------------------------------
+
+### Linux Distributions
+
+Examples:
+- Red Hat Enterprise Linux (RHEL)
+- Ubuntu
+- CentOS
+- Oracle Linux
+
+--------------------------------------------------
+
+### Linux Architecture
+
+User → Shell → Kernel → Hardware
+
+- Shell: Command interface (bash)
+- Kernel: Core system (process, memory, hardware control)
+- Hardware: Physical resources
+
+--------------------------------------------------
+
+### Interview Questions (Day 1)
+
+Q: What is Linux?  
+A: Linux is an open-source operating system kernel that manages system resources.
+
+Q: Why is Linux important in DevOps?  
+A: Because most servers, cloud platforms, and DevOps tools run on Linux.
+
+==================================================
+
+## DAY 2: BASIC LINUX COMMANDS
+
+### File & Directory Commands
+
+Commands:
+
+pwd  
+ls  
+ls -l  
+ls -a  
+cd  
+mkdir  
+rm -rf  
+cp  
+mv  
+
+--------------------------------------------------
+
+### Explanation
+
+- pwd → shows current directory  
+- ls → lists files  
+- ls -l → detailed listing  
+- ls -a → shows hidden files  
+- cd → change directory  
+- mkdir → create directory  
+- rm -rf → remove files/directories  
+- cp → copy files  
+- mv → move/rename files  
+
+--------------------------------------------------
+
+### Interview Questions (Day 2)
+
+Q: What does ls -l show?  
+A: Detailed file information including permissions, owner, size, and date.
+
+Q: Difference between cp and mv?  
+A: cp copies files, mv moves or renames files.
+
+==================================================
+
+## DAY 3: FILE SYSTEM STRUCTURE
+
+### Important Directories
+
+| Directory | Purpose |
+|----------|--------|
+| / | Root directory |
+| /home | User home directories |
+| /etc | Configuration files |
+| /var | Logs and variable data |
+| /tmp | Temporary files |
+| /usr | Applications |
+| /bin | Basic commands |
+
+--------------------------------------------------
+
+### Real-World Understanding
+
+- /var/log → used for troubleshooting  
+- /etc → contains system configuration  
+- /home → user data  
+
+--------------------------------------------------
+
+### Interview Questions (Day 3)
+
+Q: What is /etc directory?  
+A: It contains system configuration files.
+
+Q: Where are logs stored in Linux?  
+A: /var/log
+
+==================================================
+
+## DAY 4: USERS & GROUPS
+
+### Create User
+
+Command:
+useradd username  
+passwd username  
+
+--------------------------------------------------
+
+### Create Group
+
+Command:
+groupadd groupname  
+
+--------------------------------------------------
+
+### Add User to Group
+
+Command:
+usermod -aG groupname username  
+
+Explanation:
+- -a → append (do not remove existing groups)  
+- -G → secondary group  
+
+--------------------------------------------------
+
+### Check User Info
+
+Commands:
+id username  
+groups username  
+
+--------------------------------------------------
+
+### Real-World Note
+
+Without -a option, usermod removes user from all existing groups.
+
+--------------------------------------------------
+
+### Interview Questions (Day 4)
+
+Q: What is the difference between primary and secondary group?  
+A: Primary group is default group; secondary groups are additional groups assigned to user.
+
+==================================================
+
+## DAY 5: FILE PERMISSIONS (CORE CONCEPT)
+
+### Permission Structure
+
+Example:
+-rwxr-xr--
+
+Breakdown:
+- Owner (user)
+- Group
+- Others
+
+--------------------------------------------------
+
+### Permission Values
+
+| Symbol | Value |
+|--------|------|
+| r | 4 |
+| w | 2 |
+| x | 1 |
+
+--------------------------------------------------
+
+### Octal Representation
+
+| Number | Meaning |
+|--------|--------|
+| 7 | rwx |
+| 6 | rw- |
+| 5 | r-x |
+| 4 | r-- |
+| 0 | --- |
+
+--------------------------------------------------
+
+### chmod Command
+
+Numeric:
+chmod 755 file  
+
+Symbolic:
+chmod u+x file  
+chmod g-w file  
+
+--------------------------------------------------
+
+### chown Command
+
+chown user file  
+chown user:group file  
+
+--------------------------------------------------
+
+### chgrp Command
+
+chgrp group file  
+
+--------------------------------------------------
+
+### Directory Permission Logic
+
+- Execute (x) → enter directory  
+- Read (r) → list files  
+- Write (w) → create/delete files  
+
+--------------------------------------------------
+
+### Interview Questions (Day 5)
+
+Q: What does chmod 755 mean?  
+A: Owner has full access, group and others have read and execute.
+
+Q: Why is execute required on directory?  
+A: To enter or traverse the directory.
+
+==================================================
+
+## DAY 6: SHARED DIRECTORY & SPECIAL PERMISSIONS
+
+### Shared Directory Setup
+
+Commands:
+
+groupadd continues  
+
+usermod -aG continues user1  
+usermod -aG continues user2  
+
+mkdir /shared  
+chown :continues /shared  
+chmod 2770 /shared  
+
+--------------------------------------------------
+
+### SGID (Set Group ID)
+
+Command:
+chmod 2770 directory  
+
+Explanation:
+New files inherit the directory’s group.
+
+--------------------------------------------------
+
+### Sticky Bit
+
+Command:
+chmod 1777 directory  
+
+Explanation:
+Users cannot delete other users' files.
+
+Example:
+/tmp directory  
+
+--------------------------------------------------
+
+### SUID (Set User ID)
+
+Command:
+chmod 4755 file  
+
+Explanation:
+File runs with owner's privileges.
+
+Example:
+/usr/bin/passwd  
+
+--------------------------------------------------
+
+### Real-World Mistake
+
+Shared directory inside /home may fail due to parent directory permission.
+
+--------------------------------------------------
+
+### Interview Questions (Day 6)
+
+Q: What is SGID?  
+A: It ensures new files inherit the directory group.
+
+Q: What is sticky bit?  
+A: It prevents users from deleting others' files.
+
+Q: Why is /tmp set to 1777?  
+A: To allow all users to write but prevent deletion of others' files.
+
+==================================================  
+(Add Linux fundamentals and improve Git notes)
