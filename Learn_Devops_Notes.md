@@ -1,7 +1,7 @@
 11-10-2026
 ===========
 
-=======================VIM Editor Commands=========================================
+##=======================VIM Editor Commands=========================================
 
 Inserting Text
 ----------------
@@ -83,5 +83,7 @@ write permission on the file
 :q => Quits vim if no modifications were made
 :q! => Quits vim if modifications were made, but we do not wish to save them
 
+
+##====================================================================================
 
 
